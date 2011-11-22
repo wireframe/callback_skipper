@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here
-  s.add_runtime_dependency 'activerecord', '>= 3.0'
-  s.add_development_dependency "rake", "0.9.2.2"
+  s.add_runtime_dependency 'activerecord', ['>= 3.0']
+  s.add_development_dependency "rake", ["0.9.2.2"]
 end
