@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "callback_skipper"
   s.version     = CallbackSkipper::VERSION
   s.authors     = ["Ryan Sonnek"]
-  s.email       = ["ryan@socialcast.com"]
+  s.email       = ["ryan@codecrate.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Skip ActiveRecord callbacks}
+  s.description = %q{programatically skip ActiveRecord callbacks}
 
   s.rubyforge_project = "callback_skipper"
 
