@@ -24,6 +24,7 @@ foo.save!
 ### Example: FactoryGirl Usage
 
 https://github.com/thoughtbot/factory_girl
+
 ```ruby
 # spec/factories/foo_factory.rb
 Factory.define :foo do |f|
