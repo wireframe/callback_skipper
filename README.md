@@ -8,7 +8,10 @@ Programatically Skip ActiveRecord Callbacks
 
 ## Installation
 
+```ruby
+# Gemfile
 gem 'callback_skipper'
+```
 
 ## Usage
 
