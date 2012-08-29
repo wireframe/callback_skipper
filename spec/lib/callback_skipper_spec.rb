@@ -63,7 +63,7 @@ describe CallbackSkipper do
       end
     end
     it "should through an error when attempting to skip an undefined callback" do
-      lambda { @user.skip_callback :save, :after, :method_that_doesnt_exist }.should raise_error CallbackSkipper::CallbackMethodNotDefined
+      lambda { @user.skip_callback :save, :after, :method_that_doesnt_exist }.should raise_error CallbackSkipper::CallbackNotDefinedError
     end
   end
 end

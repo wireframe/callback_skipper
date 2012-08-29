@@ -3,19 +3,23 @@ require "callback_skipper/version"
 module CallbackSkipper
   extend ActiveSupport::Concern
 
-  class CallbackMethodNotDefined < ActiveRecord::ActiveRecordError ;end
+  class CallbackNotDefinedError < StandardError; end
 
+  # skip a specific callback for the given instance
+  # @raises CallbackNotDefinedError if no callback is found matching the requested callback
   def skip_callback(*args)
-    # skip over callback name and/or type
-    filters_start_index = args[1].in?([:before, :after, :around]) ? 2 : 1
-    # skip over callback options
-    filters_end_index = args.last.is_a?(Hash) ? -2 : -1
-    args[filters_start_index..filters_end_index].each do |callback_method|
-      raise CallbackMethodNotDefined unless self.class.method_defined? callback_method
-    end
+    raise CallbackNotDefinedError.new("Callback not defined matching: #{self.class.name} #{args}") unless callback_defined?(*args)
     instance = self
     args << {:if => lambda { self == instance }}
     self.class.skip_callback *args
+  end
+
+  private
+  # asserts that the callback exists in the callback chain
+  # @param args [Array] array of options matching the set_callback signiture.  first param is either the method name or the callback type (before/after/around)
+  def callback_defined?(name, *args)
+    callback_method_name = args[0].in?([:before, :after, :around]) ? args[1] : args[0]
+    self.send("_#{name}_callbacks").collect(&:filter).include?(callback_method_name)
   end
 end
 

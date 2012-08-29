@@ -5,6 +5,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rspec'
 require 'active_record'
+require 'pry'
 
 require 'callback_skipper'
 require 'setup_database'
