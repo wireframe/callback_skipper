@@ -20,5 +20,8 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here
   s.add_runtime_dependency 'activerecord', ['>= 3.0']
-  s.add_development_dependency "rake", ["0.9.2.2"]
+  s.add_development_dependency 'rake', ['0.9.2.2']
+  s.add_development_dependency('sqlite3', ['>= 1.3.5'])
+  s.add_development_dependency('rspec', ['>= 2.11.0'])
+
 end
