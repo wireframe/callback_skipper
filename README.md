@@ -33,7 +33,7 @@ foo = Foo.new
 begin
   foo.skip_callback :save ,:after, :method_that_is_not_defined
 rescue CallbackSkipper::CallbackMethodNotDefined
-  puts "You should not skip callback methods that are not defined
+  puts "You should not skip callback methods that are not defined"
 end
 ```
 
