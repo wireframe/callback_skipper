@@ -25,14 +25,14 @@ foo.skip_callback :save, :after, :do_something_expensive
 foo.save!
 ```
 ### Error handling
-If the code attempts to skip an undefined callback, a **CallbackSkipper::CallbackMethodNotDefined** will be raised:
+If the code attempts to skip an undefined callback, a **CallbackSkipper::CallbackNotDefinedError** will be raised:
 
 ```ruby
 # class Foo is defined above
 foo = Foo.new
 begin
   foo.skip_callback :save ,:after, :method_that_is_not_defined
-rescue CallbackSkipper::CallbackMethodNotDefined
+rescue CallbackSkipper::CallbackNotDefinedError
   puts "You should not skip callback methods that are not defined"
 end
 ```
